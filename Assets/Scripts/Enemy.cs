@@ -12,11 +12,18 @@ public class Enemy : MonoBehaviour
 
     AudioSource audioSource;
 
-    private void Start()
+    [SerializeField] int point = 1;
+    Score score;
+
+    void Start()
     {
         audioSource = GetComponent<AudioSource>();
 
         audioSource.PlayOneShot(spawnClip);
+
+        var gameObj = GameObject.FindWithTag("Score");
+
+        score = gameObj.GetComponent<Score>();
     }
 
     void OnHitBullet()
