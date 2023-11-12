@@ -28,13 +28,15 @@ public class Enemy : MonoBehaviour
 
     void OnHitBullet()
     {
-        Destroy(gameObject);
+        audioSource.PlayOneShot(hitClip);
 
         GoDown();
     }
 
     void GoDown()
     {
+        score.AddScore(point);
+
         enemyColloder.enabled = false;
         enemyRenderer.enabled = false;
 
